@@ -19,7 +19,10 @@
       --border-subtle: #242844;
     }
 
-    * { box-sizing: border-box; scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -28,13 +31,22 @@
       color: var(--text-main);
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
-    .page { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
 
     header {
-      padding: 24px 0 32px;
+      padding: 24px 0 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -52,60 +64,150 @@
       font-size: 14px;
       color: var(--text-muted);
     }
-    nav a:hover { color: var(--accent); }
-
-    .hero {
-      padding: 40px 0 32px;
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 24px;
-    }
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
+    nav a:hover {
+      color: var(--accent);
     }
 
-    .hero-title {
+    section {
+      margin-top: 40px;
+    }
+
+    h2.section-title {
       font-family: 'Press Start 2P';
-      font-size: 20px;
-      margin-bottom: 16px;
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
-    .hero-subtitle {
-      font-size: 16px;
+    .section-intro {
+      font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 18px;
+      max-width: 720px;
     }
 
-    section { margin-top: 40px; }
+    /* ABOUT SECTION */
 
-    h2 {
-      font-family: 'Press Start 2P';
-      font-size: 16px;
-      margin-bottom: 16px;
+    .about-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
+      padding: 20px;
     }
 
-    .projects-grid { display: flex; flex-direction: column; gap: 24px; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about-photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid var(--accent-soft);
+      box-shadow: 0 0 26px rgba(74, 242, 197, 0.35);
+      background: radial-gradient(circle at top, #222744 0, #050712 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-photo-placeholder-text {
+      font-size: 12px;
+      text-align: center;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .about-text p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin: 0 0 10px;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
 
     .project-card {
       background: var(--card-bg);
       border-radius: 24px;
-      padding: 18px;
       border: 1px solid var(--border-subtle);
+      padding: 18px 18px 20px;
     }
 
-    .project-header {
+    .project-header-inline {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 12px;
+      align-items: baseline;
+      margin-bottom: 10px;
+      gap: 12px;
     }
 
-    .project-title { font-size: 18px; font-weight: 600; }
-    .project-tagline { color: var(--accent); margin-bottom: 4px; }
+    .project-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
 
-    .project-description {
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 14px;
+    .project-tagline {
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .project-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.5fr);
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-text p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin: 0 0 10px;
+    }
+
+    .project-text ul {
+      padding-left: 18px;
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
     .video-wrapper {
@@ -114,7 +216,7 @@
       height: 0;
       overflow: hidden;
       border-radius: 16px;
-      background: black;
+      background: #000;
       margin-bottom: 10px;
     }
 
@@ -132,16 +234,116 @@
       border: 1px solid var(--border-subtle);
       font-size: 13px;
       color: var(--text-muted);
+      display: inline-block;
+      margin-top: 2px;
     }
-    .pill-link:hover { border-color: var(--accent); color: var(--accent); }
+    .pill-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* NARRATIVE WORLDS */
+
+    .narrative-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .narrative-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 20px;
+    }
+
+    .narrative-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .narrative-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .narrative-image-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #000;
+      min-height: 180px;
+    }
+
+    .narrative-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .narrative-text h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .narrative-tagline {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .narrative-text p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin: 0 0 8px;
+    }
+
+    .narrative-list-title {
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .narrative-text ul {
+      padding-left: 18px;
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .btn-pdf {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #050712;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 16px rgba(74, 242, 197, 0.4);
+    }
+    .btn-pdf:hover {
+      text-decoration: none;
+      filter: brightness(1.05);
+    }
+
+    /* CONTACT */
 
     footer {
       margin-top: 40px;
       padding-top: 20px;
-      text-align: center;
+      border-top: 1px solid var(--border-subtle);
       font-size: 12px;
       color: var(--text-muted);
-      border-top: 1px solid var(--border-subtle);
+      text-align: center;
     }
   </style>
 </head>
@@ -149,124 +351,379 @@
 <body>
 <div class="page">
 
-<header>
-  <div class="logo-text">TAOTAO OUYANG</div>
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-text">TAOTAO OUYANG</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Demos</a>
+      <a href="#narrative">Narrative Worlds</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <div>
-    <h1 class="hero-title">Pixel Games & Prototypes</h1>
-    <p class="hero-subtitle">
-      A collection of small arcade-style games exploring controls, feedback, and pacing.
+  <!-- ABOUT ME -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-card">
+      <div class="about-grid">
+        <!-- LEFT: PHOTO (placeholder for now) -->
+        <div class="about-photo-wrap">
+          <div class="about-photo">
+            <div class="about-photo-placeholder-text">
+              PROFILE PHOTO<br>COMING SOON
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: TEXT -->
+        <div class="about-text">
+          <p>
+            I have always believed that some stories cannot be captured by words or a camera; they have to be
+            <em>experienced</em>. Games are the medium I found for that kind of storytelling.
+          </p>
+          <p>
+            Coming from literature and psychology, I am fascinated by classical tragedies, both Eastern and Western,
+            and by the perspectives of people who “do not win”. I want players to inhabit characters shaped or crushed
+            by history, systems, or identity—not to create simple sadness, but to let players feel a different kind of
+            “truth”.
+          </p>
+          <p>
+            It took me a long time to hear that voice clearly. The pandemic pushed me into epidemiology and medical
+            data; my family’s expectations led me through a traditional path in finance. In these years, I learned how
+            to describe the world with tools: I used Python, SQL and JavaScript to build data workflows; I worked as a
+            team member on interactive dashboards for hospitals, translating the needs of doctors, nurses and managers
+            into something they could see and use. I was, unknowingly, training my sense for interaction and
+            communication between systems and people.
+          </p>
+          <p>
+            Through the echoes of social change and the pressure of expectations, I eventually recognised the one
+            activity that consistently made me feel deeply alive: making games. It is the space where I am willing to
+            keep learning, to break myself apart and rebuild.
+          </p>
+          <p>
+            At CGL, I want to understand more deeply how systems can carry narrative, how interaction can express
+            emotion, and how code can construct worlds. I hope to study system design, interactive narrative, and
+            writing for games, and to eventually learn how to build my own engine.
+          </p>
+          <p>
+            I chose the Game Programming pathway because I want to be a creator who can build worlds from scratch. My
+            goal is to bring together literature, psychology, programming and the detours of my life, and translate all
+            of them into my own language of games.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Playable Prototypes</h2>
+    <p class="section-intro">
+      Three small pixel-art games built in Python. Each prototype focuses on a specific aspect of moment-to-moment
+      gameplay: patterns and pressure, risk–reward, and 1v1 competitive rhythm against AI.
     </p>
-  </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>Projects</h2>
+    <div class="projects-grid">
 
-  <div class="projects-grid">
-
-    <!-- 1: Alien Invasion -->
-    <article class="project-card">
-      <div class="project-header">
-        <div>
-          <div class="project-title">Alien Invasion</div>
-          <div class="project-tagline">Top-down pixel shooter with waves and patterns</div>
+      <!-- 1: Alien Invasion -->
+      <article class="project-card">
+        <div class="project-header-inline">
+          <div>
+            <div class="project-title">Alien Invasion</div>
+            <div class="project-tagline">Top-down pixel shooter with waves and patterns</div>
+          </div>
+          <div class="project-role">Solo Developer</div>
         </div>
-      </div>
 
-      <p class="project-description">
-        A fast-paced arcade shooter focusing on timing, pattern recognition, and pressure control.
-      </p>
+        <div class="project-layout">
+          <!-- LEFT: description -->
+          <div class="project-text">
+            <p>
+              <strong>Core idea:</strong> a wave-based top-down shooter focused on movement reading and projectile timing.
+            </p>
+            <p>
+              The player moves horizontally while firing upward. Alien fleets move as a formation, reverse direction
+              when reaching screen edges and drop down a row. Enemies fire projectiles at timed intervals. The player
+              clears waves to increase difficulty in terms of speed, bullet density and fleet spacing, and wins when a
+              score threshold is reached.
+            </p>
+            <p>
+              <strong>Programming features:</strong>
+            </p>
+            <ul>
+              <li>Fleet movement system with edge-detection and vertical row shifts</li>
+              <li>Bullet pooling and collision handling for player and enemy projectiles</li>
+              <li>Scoring, level progression and difficulty scaling logic</li>
+              <li>Sprite groups, update loops and screen refresh in Pygame</li>
+            </ul>
+          </div>
 
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/Gqln196GWv0?rel=0"
-          title="Alien Invasion Demo"
-          frameborder="0"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <a class="pill-link" href="https://github.com/Peachgrape2501/alien_invasion" target="_blank">View on GitHub</a>
-    </article>
-
-    <!-- 2: Fish's Feast -->
-    <article class="project-card">
-      <div class="project-header">
-        <div>
-          <div class="project-title">Fish's Feast</div>
-          <div class="project-tagline">Grow-and-dodge arcade loop</div>
+          <!-- RIGHT: video + link -->
+          <div>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/Gqln196GWv0?rel=0"
+                title="Alien Invasion Demo"
+                frameborder="0"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <a class="pill-link" href="https://github.com/Peachgrape2501/alien_invasion" target="_blank">
+              View source on GitHub
+            </a>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <p class="project-description">
-        A survival game where you grow by eating smaller fish while avoiding deadly predators.
-      </p>
-
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/7eZma81sWDU?rel=0"
-          title="Fish's Feast Demo"
-          frameborder="0"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <a class="pill-link" href="https://github.com/Peachgrape2501/fishs_feast" target="_blank">View on GitHub</a>
-    </article>
-
-    <!-- 3: Neon Puck Arena -->
-    <article class="project-card">
-      <div class="project-header">
-        <div>
-          <div class="project-title">Neon Puck Arena</div>
-          <div class="project-tagline">1v1 cyber air-hockey</div>
+      <!-- 2: Fish's Feast -->
+      <article class="project-card">
+        <div class="project-header-inline">
+          <div>
+            <div class="project-title">Fish's Feast</div>
+            <div class="project-tagline">Size-based growth and avoidance</div>
+          </div>
+          <div class="project-role">Solo Developer</div>
         </div>
-      </div>
 
-      <p class="project-description">
-        A glowing neon duel game inspired by air hockey, focusing on speed and clean visual feedback.
-      </p>
+        <div class="project-layout">
+          <!-- LEFT: description -->
+          <div class="project-text">
+            <p>
+              <strong>Core idea:</strong> a growth and avoidance game where distance to danger directly affects
+              progression speed.
+            </p>
+            <p>
+              The player controls a fish that grows by consuming smaller fish while avoiding larger predators that end
+              the run on collision. As the player grows, speed, hitbox size and movement weight change. Fish spawn from
+              screen edges with randomized speed and direction. The game is won once the player reaches the target size.
+            </p>
+            <p>
+              <strong>Programming features:</strong>
+            </p>
+            <ul>
+              <li>Size-based collision rules using radius and bounding-box comparison</li>
+              <li>Dynamic scaling of movement speed and friction as the player grows</li>
+              <li>Randomized enemy spawning logic and off-screen clean-up</li>
+              <li>Growth curve tuning and hitbox recalculation per frame</li>
+            </ul>
+          </div>
 
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/r1_tSPOcbzI?rel=0"
-          title="Neon Puck Arena Demo"
-          frameborder="0"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
+          <!-- RIGHT: video + link -->
+          <div>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/7eZma81sWDU?rel=0"
+                title="Fish's Feast Demo"
+                frameborder="0"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <a class="pill-link" href="https://github.com/Peachgrape2501/fishs_feast" target="_blank">
+              View source on GitHub
+            </a>
+          </div>
+        </div>
+      </article>
 
-      <a class="pill-link" href="https://github.com/Peachgrape2501/neon_puck_arena" target="_blank">View on GitHub</a>
-    </article>
+      <!-- 3: Neon Puck Arena -->
+      <article class="project-card">
+        <div class="project-header-inline">
+          <div>
+            <div class="project-title">Neon Puck Arena</div>
+            <div class="project-tagline">Air-hockey vs AI in a neon arena</div>
+          </div>
+          <div class="project-role">Solo Developer</div>
+        </div>
 
-  </div>
-</section>
+        <div class="project-layout">
+          <!-- LEFT: description -->
+          <div class="project-text">
+            <p>
+              <strong>Core idea:</strong> a fast-paced air-hockey style game where the player controls the bottom paddle
+              and competes against an AI opponent at the top of the arena.
+            </p>
+            <p>
+              The player moves the bottom paddle horizontally to intercept and return the puck. The AI paddle follows
+              the puck using a prediction-based tracking algorithm with speed constraints. The puck accelerates after
+              each collision and bounces using angle-reflection physics. A point is scored when the puck enters the
+              opponent’s goal area; the round then resets with updated puck velocity.
+            </p>
+            <p>
+              <strong>Programming features:</strong>
+            </p>
+            <ul>
+              <li>AI paddle behaviour using direction prediction and clamp-speed heuristics</li>
+              <li>Elastic collision response between puck, paddles and arena boundaries</li>
+              <li>Vector-based speed, acceleration and reflection updates per frame</li>
+              <li>Complete local game loop: player input → AI update → puck physics → scoring → state reset</li>
+            </ul>
+          </div>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: your.email@example.com</p>
-</section>
+          <!-- RIGHT: video + link -->
+          <div>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/r1_tSPOcbzI?rel=0"
+                title="Neon Puck Arena Demo"
+                frameborder="0"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <a class="pill-link" href="https://github.com/Peachgrape2501/neon_puck_arena" target="_blank">
+              View source on GitHub
+            </a>
+          </div>
+        </div>
+      </article>
 
-<footer>
-  © 2025 Taotao Ouyang
-</footer>
+    </div>
+  </section>
+
+  <!-- NARRATIVE WORLDS -->
+  <section id="narrative">
+    <h2 class="section-title">Narrative Worlds</h2>
+    <p class="section-intro">
+      Concept documents for narrative-driven games that combine psychological themes, historical tragedy and systemic
+      mechanics. Each project is presented with a short overview and a link to the full PDF.
+    </p>
+
+    <div class="narrative-grid">
+
+      <!-- Not a Bug -->
+      <article class="narrative-card">
+        <div class="narrative-layout">
+          <!-- LEFT: image -->
+          <div class="narrative-image-wrap">
+            <!-- Google Drive image link (Not a Bug PNG) -->
+            <img src="https://drive.google.com/uc?export=view&id=16CzLSupJC1eFvRmIIBEMJVAmB5ehj4Fi"
+                 alt="Not a Bug concept illustration">
+          </div>
+
+          <!-- RIGHT: text -->
+          <div class="narrative-text">
+            <h3>Not a Bug</h3>
+            <div class="narrative-tagline">Narrative Adventure · Psychological Transformation</div>
+
+            <p><em>Hook:</em> When the world stops seeing you as human, how do you keep seeing the human in yourself?</p>
+
+            <p>
+              <strong>Not a Bug</strong> is a narrative adventure set in a hyper-modern, almost cyberpunk version of New York,
+              where the player awakens in the body of a small firefly-like creature. Struggling with alienation,
+              disconnection and a profound loss of voice, the protagonist escapes his apartment and travels through the
+              hidden layers of the city—alleys, rooftops, tunnels, abandoned offices and the roots beneath urban parks.
+            </p>
+            <p>
+              Along the way, he meets other “bug-people”: former humans who quietly slipped out of society—Dex the
+              exhausted delivery worker, Vera the exploited fashion assistant, Mr. Lynn trapped in corporate loops, the
+              Cicada Choir of forgotten performers, and Khepri the philosopher who chooses to abandon his humanity
+              entirely. Each encounter combines narrative choice with small game systems that mirror the emotional life
+              of the character.
+            </p>
+            <p>
+              By the end, a dynamic balance between <strong>Humanity</strong> and <strong>Insect Instinct</strong> determines
+              whether the protagonist returns to human form or remains a bug.
+            </p>
+
+            <p class="narrative-list-title">Key design aspects:</p>
+            <ul>
+              <li>Transformation-based core loop with distinct movement modes and energy management</li>
+              <li>Chapter-specific mechanics tied to each NPC (foraging, pattern puzzles, corridor loops, rhythm and light)</li>
+              <li>Humanity Index system driven by memory, trust and energy variables</li>
+              <li>Environmental storytelling and UI distortion reflecting psychological states</li>
+            </ul>
+
+            <a class="btn-pdf"
+               href="https://drive.google.com/file/d/1abcqkkAf98RwTMdPMnIOat9xHdyvAMUw/view?usp=drive_link"
+               target="_blank">
+              Read full narrative concept (PDF)
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Codename Jeanne -->
+      <article class="narrative-card">
+        <div class="narrative-layout">
+          <!-- LEFT: image -->
+          <div class="narrative-image-wrap">
+            <!-- Google Drive image link (Codename Jeanne PNG) -->
+            <img src="https://drive.google.com/uc?export=view&id=1Spg4E0OOdK1rpEes9n4K2YM-x-72hg4b"
+                 alt="Codename Jeanne concept illustration">
+          </div>
+
+          <!-- RIGHT: text -->
+          <div class="narrative-text">
+            <h3>Codename Jeanne</h3>
+            <div class="narrative-tagline">Historical Stealth-Action · Tragedy · Theology of Power</div>
+
+            <p>
+              <em>Hook:</em> A hired assassin hunts a peasant girl destined for sainthood—only to confront the machinery
+              of power, faith and a tragedy already written.
+            </p>
+
+            <p>
+              <strong>Codename Jeanne</strong> is a historical stealth-action narrative set in 15th-century France. The player
+              takes the role of an English assassin—code name <em>The Crow</em>—tasked with eliminating Jeanne d’Arc, a
+              girl whose victories have turned her into both a military asset and an uncontrollable myth.
+            </p>
+            <p>
+              Moving through ruined cities, war-torn fields and political courts, the assassin uncovers letters,
+              testimonies and secret archives that reveal how Jeanne’s rise and coming death are engineered by nobles,
+              clerics and military factions who fear her growing influence. Inspired by Dreyer’s
+              <em>The Passion of Joan of Arc</em> and Bergman’s <em>The Seventh Seal</em>, the game frames Jeanne as a
+              figure caught between faith and power.
+            </p>
+            <p>
+              The assassin, practical and unbelieving, becomes both her shadow and her mirror. The player chooses
+              whether to preserve, disrupt or quietly rewrite history, but every path returns to a central idea: some
+              tragedies move forward even without a god.
+            </p>
+
+            <p class="narrative-list-title">Key design aspects:</p>
+            <ul>
+              <li>Stealth–action hybrid system with dodge, crouch, aerial traversal and ranged tools</li>
+              <li>Posture / stamina model with SP, vulnerability windows and execution finishers</li>
+              <li>Weapon upgrade and levelling trees for different playstyles</li>
+              <li>Morale and faith mechanics tied to Jeanne’s presence on the battlefield</li>
+              <li>Evidence-based narrative progression through documents and testimony, rather than dialogue trees</li>
+            </ul>
+
+            <a class="btn-pdf"
+               href="https://drive.google.com/file/d/14b8pxdXTzASPYaj2A-9J5n6Ng66wRWPZ/view?usp=drive_link"
+               target="_blank">
+              Read full concept document (PDF)
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-intro">
+      If you would like to see more design documents, prototypes or writing samples, feel free to contact me.
+    </p>
+    <p>Email: your.email@example.com</p>
+  </section>
+
+  <footer>
+    © 2025 Taotao Ouyang
+  </footer>
 
 </div>
 </body>
 </html>
+
 
 
