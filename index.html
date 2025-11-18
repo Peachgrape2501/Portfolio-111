@@ -438,20 +438,15 @@
         </div>
 
         <div class="project-layout">
-          <!-- LEFT: description -->
           <div class="project-text">
-            <p>
-              <strong>Core idea:</strong> a wave-based top-down shooter focused on movement reading and projectile timing.
-            </p>
+            <p><strong>Core idea:</strong> a wave-based top-down shooter focused on movement reading and projectile timing.</p>
             <p>
               The player moves horizontally while firing upward. Alien fleets move as a formation, reverse direction
               when reaching screen edges and drop down a row. Enemies fire projectiles at timed intervals. The player
               clears waves to increase difficulty in terms of speed, bullet density and fleet spacing, and wins when a
               score threshold is reached.
             </p>
-            <p>
-              <strong>Programming features:</strong>
-            </p>
+            <p><strong>Programming features:</strong></p>
             <ul>
               <li>Fleet movement system with edge-detection and vertical row shifts</li>
               <li>Bullet pooling and collision handling for player and enemy projectiles</li>
@@ -459,8 +454,6 @@
               <li>Sprite groups, update loops and screen refresh in Pygame</li>
             </ul>
           </div>
-
-          <!-- RIGHT: video + link -->
           <div>
             <div class="video-wrapper">
               <iframe
@@ -472,9 +465,7 @@
                 allowfullscreen>
               </iframe>
             </div>
-            <a class="pill-link" href="https://github.com/Peachgrape2501/alien_invasion" target="_blank">
-              View source on GitHub
-            </a>
+            <a class="pill-link" href="https://github.com/Peachgrape2501/alien_invasion" target="_blank">View source on GitHub</a>
           </div>
         </div>
       </article>
@@ -490,20 +481,14 @@
         </div>
 
         <div class="project-layout">
-          <!-- LEFT: description -->
           <div class="project-text">
-            <p>
-              <strong>Core idea:</strong> a growth and avoidance game where distance to danger directly affects
-              progression speed.
-            </p>
+            <p><strong>Core idea:</strong> a growth and avoidance game where distance to danger directly affects progression.</p>
             <p>
               The player controls a fish that grows by consuming smaller fish while avoiding larger predators that end
               the run on collision. As the player grows, speed, hitbox size and movement weight change. Fish spawn from
               screen edges with randomized speed and direction. The game is won once the player reaches the target size.
             </p>
-            <p>
-              <strong>Programming features:</strong>
-            </p>
+            <p><strong>Programming features:</strong></p>
             <ul>
               <li>Size-based collision rules using radius and bounding-box comparison</li>
               <li>Dynamic scaling of movement speed and friction as the player grows</li>
@@ -512,7 +497,6 @@
             </ul>
           </div>
 
-          <!-- RIGHT: video + link -->
           <div>
             <div class="video-wrapper">
               <iframe
@@ -524,9 +508,7 @@
                 allowfullscreen>
               </iframe>
             </div>
-            <a class="pill-link" href="https://github.com/Peachgrape2501/fishs_feast" target="_blank">
-              View source on GitHub
-            </a>
+            <a class="pill-link" href="https://github.com/Peachgrape2501/fishs_feast" target="_blank">View source on GitHub</a>
           </div>
         </div>
       </article>
@@ -542,30 +524,22 @@
         </div>
 
         <div class="project-layout">
-          <!-- LEFT: description -->
           <div class="project-text">
+            <p><strong>Core idea:</strong> a fast-paced air-hockey game where the player controls the bottom paddle and plays against an AI.</p>
             <p>
-              <strong>Core idea:</strong> a fast-paced air-hockey style game where the player controls the bottom paddle
-              and competes against an AI opponent at the top of the arena.
+              The bottom paddle follows player input. The AI paddle tracks the puck using prediction with clamp-speed
+              limits. The puck accelerates after each collision and bounces using angle-reflection physics. Scoring
+              occurs when the puck enters a goal zone; the round then resets with updated velocity.
             </p>
-            <p>
-              The player moves the bottom paddle horizontally to intercept and return the puck. The AI paddle follows
-              the puck using a prediction-based tracking algorithm with speed constraints. The puck accelerates after
-              each collision and bounces using angle-reflection physics. A point is scored when the puck enters the
-              opponent’s goal area; the round then resets with updated puck velocity.
-            </p>
-            <p>
-              <strong>Programming features:</strong>
-            </p>
+            <p><strong>Programming features:</strong></p>
             <ul>
-              <li>AI paddle behaviour using direction prediction and clamp-speed heuristics</li>
-              <li>Elastic collision response between puck, paddles and arena boundaries</li>
-              <li>Vector-based speed, acceleration and reflection updates per frame</li>
-              <li>Complete local game loop: player input → AI update → puck physics → scoring → state reset</li>
+              <li>AI movement heuristics based on puck direction prediction</li>
+              <li>Elastic collision response for puck, paddles and arena walls</li>
+              <li>Vector-based speed, acceleration and reflection updates</li>
+              <li>Full game loop: input → AI update → physics → scoring → reset</li>
             </ul>
           </div>
 
-          <!-- RIGHT: video + link -->
           <div>
             <div class="video-wrapper">
               <iframe
@@ -577,9 +551,7 @@
                 allowfullscreen>
               </iframe>
             </div>
-            <a class="pill-link" href="https://github.com/Peachgrape2501/neon_puck_arena" target="_blank">
-              View source on GitHub
-            </a>
+            <a class="pill-link" href="https://github.com/Peachgrape2501/neon_puck_arena" target="_blank">View source on GitHub</a>
           </div>
         </div>
       </article>
@@ -591,8 +563,7 @@
   <section id="narrative">
     <h2 class="section-title">Narrative Worlds</h2>
     <p class="section-intro">
-      Concept documents for narrative-driven games that combine psychological themes, historical tragedy and systemic
-      mechanics. Each project is presented with a short overview and a link to the full PDF.
+      Concept documents for narrative-driven games exploring psychological themes, historical tragedy and systemic mechanics.
     </p>
 
     <div class="narrative-grid">
@@ -600,10 +571,10 @@
       <!-- Not a Bug -->
       <article class="narrative-card">
         <div class="narrative-layout">
+
           <!-- LEFT: image -->
           <div class="narrative-image-wrap">
-            <!-- Google Drive image link (Not a Bug PNG) -->
-            <img src="https://drive.google.com/uc?export=view&id=16CzLSupJC1eFvRmIIBEMJVAmB5ehj4Fi"
+            <img src="https://drive.google.com/thumbnail?id=16CzLSupJC1eFvRmIIBEMJVAmB5ehj4Fi&sz=w1200"
                  alt="Not a Bug concept illustration">
           </div>
 
@@ -616,28 +587,26 @@
 
             <p>
               <strong>Not a Bug</strong> is a narrative adventure set in a hyper-modern, almost cyberpunk version of New York,
-              where the player awakens in the body of a small firefly-like creature. Struggling with alienation,
-              disconnection and a profound loss of voice, the protagonist escapes his apartment and travels through the
-              hidden layers of the city—alleys, rooftops, tunnels, abandoned offices and the roots beneath urban parks.
+              where the protagonist awakens in the body of a firefly-like creature. Struggling with alienation,
+              disconnection and a profound loss of voice, he travels through alleys, rooftops, tunnels, abandoned offices
+              and the hidden roots beneath parks.
             </p>
             <p>
-              Along the way, he meets other “bug-people”: former humans who quietly slipped out of society—Dex the
-              exhausted delivery worker, Vera the exploited fashion assistant, Mr. Lynn trapped in corporate loops, the
-              Cicada Choir of forgotten performers, and Khepri the philosopher who chooses to abandon his humanity
-              entirely. Each encounter combines narrative choice with small game systems that mirror the emotional life
-              of the character.
+              Along the way, he meets other “bug-people”—former humans who quietly slipped out of society. Each encounter
+              combines narrative choice with gameplay systems that mirror emotional states: foraging, pattern puzzles,
+              corridor loops, rhythm and light.
             </p>
             <p>
-              By the end, a dynamic balance between <strong>Humanity</strong> and <strong>Insect Instinct</strong> determines
-              whether the protagonist returns to human form or remains a bug.
+              A dynamic balance between <strong>Humanity</strong> and <strong>Insect Instinct</strong> determines whether he
+              returns to human form or remains a bug.
             </p>
 
             <p class="narrative-list-title">Key design aspects:</p>
             <ul>
-              <li>Transformation-based core loop with distinct movement modes and energy management</li>
-              <li>Chapter-specific mechanics tied to each NPC (foraging, pattern puzzles, corridor loops, rhythm and light)</li>
-              <li>Humanity Index system driven by memory, trust and energy variables</li>
-              <li>Environmental storytelling and UI distortion reflecting psychological states</li>
+              <li>Movement modes and energy management tied to transformation</li>
+              <li>Chapter-specific mechanics based on each NPC’s psychology</li>
+              <li>Humanity Index influenced by memory, trust and energy</li>
+              <li>UI distortion and environmental storytelling for emotional expression</li>
             </ul>
 
             <a class="btn-pdf"
@@ -652,10 +621,10 @@
       <!-- Codename Jeanne -->
       <article class="narrative-card">
         <div class="narrative-layout">
+
           <!-- LEFT: image -->
           <div class="narrative-image-wrap">
-            <!-- Google Drive image link (Codename Jeanne PNG) -->
-            <img src="https://drive.google.com/uc?export=view&id=1Spg4E0OOdK1rpEes9n4K2YM-x-72hg4b"
+            <img src="https://drive.google.com/thumbnail?id=1Spg4E0OOdK1rpEes9n4K2YM-x-72hg4b&sz=w1200"
                  alt="Codename Jeanne concept illustration">
           </div>
 
@@ -664,36 +633,29 @@
             <h3>Codename Jeanne</h3>
             <div class="narrative-tagline">Historical Stealth-Action · Tragedy · Theology of Power</div>
 
-            <p>
-              <em>Hook:</em> A hired assassin hunts a peasant girl destined for sainthood—only to confront the machinery
-              of power, faith and a tragedy already written.
-            </p>
+            <p><em>Hook:</em> A hired assassin hunts a peasant girl destined for sainthood—only to confront the machinery of power.</p>
 
             <p>
               <strong>Codename Jeanne</strong> is a historical stealth-action narrative set in 15th-century France. The player
-              takes the role of an English assassin—code name <em>The Crow</em>—tasked with eliminating Jeanne d’Arc, a
-              girl whose victories have turned her into both a military asset and an uncontrollable myth.
+              becomes an English assassin—code name <em>The Crow</em>—charged with eliminating Jeanne d’Arc, whose military
+              success has turned her into both an asset and a threat.
             </p>
             <p>
-              Moving through ruined cities, war-torn fields and political courts, the assassin uncovers letters,
-              testimonies and secret archives that reveal how Jeanne’s rise and coming death are engineered by nobles,
-              clerics and military factions who fear her growing influence. Inspired by Dreyer’s
-              <em>The Passion of Joan of Arc</em> and Bergman’s <em>The Seventh Seal</em>, the game frames Jeanne as a
-              figure caught between faith and power.
+              Through ruins, battlefields and political courts, the assassin uncovers letters and secret archives showing
+              how Jeanne’s rise—and her death—are shaped by nobles, clerics and generals driven by fear and ambition.
             </p>
             <p>
-              The assassin, practical and unbelieving, becomes both her shadow and her mirror. The player chooses
-              whether to preserve, disrupt or quietly rewrite history, but every path returns to a central idea: some
-              tragedies move forward even without a god.
+              The story draws on the tragic logic of martyrdom and existential theology: in a world ruled by violence,
+              even faith becomes an act of defiance.
             </p>
 
             <p class="narrative-list-title">Key design aspects:</p>
             <ul>
-              <li>Stealth–action hybrid system with dodge, crouch, aerial traversal and ranged tools</li>
-              <li>Posture / stamina model with SP, vulnerability windows and execution finishers</li>
-              <li>Weapon upgrade and levelling trees for different playstyles</li>
-              <li>Morale and faith mechanics tied to Jeanne’s presence on the battlefield</li>
-              <li>Evidence-based narrative progression through documents and testimony, rather than dialogue trees</li>
+              <li>Stealth–action hybrid system</li>
+              <li>Posture / SP model with vulnerability and execution</li>
+              <li>Weapon upgrade trees</li>
+              <li>Morale and faith influence on battlefield states</li>
+              <li>Evidence-driven narrative progression</li>
             </ul>
 
             <a class="btn-pdf"
@@ -712,7 +674,7 @@
   <section id="contact">
     <h2 class="section-title">Contact</h2>
     <p class="section-intro">
-      If you would like to see more design documents, prototypes or writing samples, feel free to contact me.
+      If you would like to see more design documents or writing samples, feel free to contact me.
     </p>
     <p>Email: your.email@example.com</p>
   </section>
@@ -724,6 +686,7 @@
 </div>
 </body>
 </html>
+
 
 
 
