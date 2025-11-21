@@ -10,22 +10,24 @@
 
   <style>
     :root {
-      --bg-main: #050805;
-      --bg-card: #050d05;
+      /* Deep space background & cards */
+      --bg-main: #020014;
+      --bg-card: #050821;
 
-      --crt-green: #7CFF7C;
-      --crt-green-soft: rgba(124, 255, 124, 0.55);
+      /* Star / galaxy palette */
+      --crt-green: #e5e7ff;                 /* starlight cool white-blue */
+      --crt-green-soft: rgba(226, 232, 255, 0.8);
 
-      --crt-yellow: #FFE58A;
-      --crt-yellow-soft: rgba(255, 229, 138, 0.65);
+      --crt-yellow: #a5b4fc;                /* soft lavender-blue */
+      --crt-yellow-soft: rgba(165, 180, 252, 0.8);
 
-      --crt-red: #FF7B88;
-      --crt-red-soft: rgba(255, 123, 136, 0.65);
+      --crt-red: #f9a8d4;                   /* accent pink */
+      --crt-red-soft: rgba(249, 168, 212, 0.8);
 
-      --crt-border: #1C3D1C;
+      --crt-border: #1f2937;                /* deep blue-gray border */
 
-      --text-main: #c9ffd0;
-      --text-muted: #7ca07c;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
     }
 
     * {
@@ -36,20 +38,22 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
+
+      /* == 银河带背景 + 深色遮罩 == */
       background:
-        radial-gradient(circle at top, #0b150b 0, #020402 55%),
-        repeating-linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.35),
-          rgba(0, 0, 0, 0.35) 1px,
-          rgba(0, 20, 0, 0.6) 2px
-        );
+        linear-gradient(to bottom, rgba(2, 0, 20, 0.25), rgba(0, 0, 10, 0.25)),
+        url("https://drive.google.com/uc?export=view&id=1Cza_odwfbOH46JyWGEantS_KRAIaAoxG")
+          center / cover fixed no-repeat;
+
       color: var(--text-main);
       text-shadow: 0 0 4px rgba(0, 0, 0, 0.85);
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     a {
-      color: var(--crt-green);
+      color: var(--crt-yellow);
       text-decoration: none;
     }
     a:hover {
@@ -60,29 +64,32 @@
       max-width: 1080px;
       margin: 0 auto;
       padding: 24px 16px 64px;
-      border-left: 2px solid rgba(124, 255, 124, 0.2);
-      border-right: 2px solid rgba(124, 255, 124, 0.2);
+      border-left: 1px solid rgba(148, 163, 184, 0.6);
+      border-right: 1px solid rgba(148, 163, 184, 0.6);
       box-shadow:
-        0 0 18px rgba(0, 0, 0, 0.9),
-        0 0 32px rgba(0, 40, 0, 0.8);
-      background: radial-gradient(circle at top, rgba(5,16,5,0.8) 0, rgba(2,6,2,0.95) 55%);
+        0 0 30px rgba(15, 23, 42, 0.95),
+        0 0 80px rgba(59, 130, 246, 0.45);
+      background: radial-gradient(circle at top, rgba(7, 10, 35, 0.98) 0, rgba(3, 6, 24, 0.98) 55%);
       position: relative;
+      z-index: 1;
+      backdrop-filter: blur(4px);
     }
 
     .page::before {
-      /* scanline */
+      /* subtle screen texture */
       content: "";
       pointer-events: none;
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.18),
-        rgba(0, 0, 0, 0.18) 1px,
-        transparent 2px
-      );
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 3px
+        );
       mix-blend-mode: soft-light;
-      opacity: 0.7;
+      opacity: 0.35;
     }
 
     header {
@@ -94,7 +101,7 @@
       position: relative;
       z-index: 1;
       border-bottom: 2px solid var(--crt-border);
-      box-shadow: 0 2px 0 rgba(6, 24, 6, 0.9);
+      box-shadow: 0 2px 0 rgba(15, 23, 42, 0.95);
     }
 
     .logo-text {
@@ -102,7 +109,7 @@
       font-size: 13px;
       letter-spacing: 0.14em;
       color: var(--crt-green);
-      text-shadow: 0 0 6px var(--crt-green-soft);
+      text-shadow: 0 0 8px var(--crt-green-soft);
     }
 
     nav a {
@@ -135,19 +142,31 @@
       text-transform: uppercase;
       margin-bottom: 16px;
       color: var(--crt-green);
-      text-shadow: 0 0 6px var(--crt-green-soft);
+      text-shadow: 0 0 8px var(--crt-green-soft);
       position: relative;
+      padding-left: 18px;
+    }
+
+    h2.section-title::before {
+      content: "✶";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: var(--crt-yellow);
+      text-shadow: 0 0 8px var(--crt-yellow-soft);
     }
 
     h2.section-title::after {
       content: "";
       position: absolute;
-      left: 0;
+      left: 18px;
       bottom: -6px;
-      width: 140px;
+      width: 160px;
       height: 2px;
-      background: linear-gradient(to right, var(--crt-green), var(--crt-yellow), transparent);
-      box-shadow: 0 0 8px var(--crt-green-soft);
+      background: linear-gradient(to right, var(--crt-yellow), var(--crt-red), transparent);
+      box-shadow: 0 0 10px var(--crt-yellow-soft);
     }
 
     .section-intro {
@@ -166,7 +185,7 @@
       padding: 18px;
       box-shadow:
         0 0 12px rgba(0, 0, 0, 0.9),
-        0 0 18px rgba(0, 120, 0, 0.4);
+        0 0 24px rgba(59, 130, 246, 0.45);
     }
 
     .about-grid {
@@ -195,8 +214,8 @@
       border: 2px solid var(--crt-border);
       box-shadow:
         0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 18px rgba(0, 120, 0, 0.6);
-      background: #050b05;
+        0 0 24px rgba(79, 70, 229, 0.6);
+      background: #020314;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -209,7 +228,7 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0.16),
         transparent 40%
       );
       mix-blend-mode: soft-light;
@@ -231,7 +250,7 @@
 
     .about-text em {
       font-style: italic;
-      color: var(--crt-green);
+      color: var(--crt-yellow);
     }
 
     /* SKILLS */
@@ -257,14 +276,14 @@
       font-size: 9px;
       padding: 4px 8px;
       color: var(--crt-yellow);
-      background: #050b05;
+      background: #020617;
       border: 2px solid var(--crt-border);
       text-shadow:
         0 0 5px var(--crt-yellow-soft),
         0 0 9px rgba(0,0,0,0.8);
       box-shadow:
         inset 0 0 4px rgba(0, 0, 0, 0.6),
-        0 0 8px rgba(255, 229, 138, 0.6);
+        0 0 8px rgba(165, 180, 252, 0.6);
       letter-spacing: 0.16em;
       border-radius: 3px;
       white-space: nowrap;
@@ -285,7 +304,7 @@
       padding: 16px 16px 18px;
       box-shadow:
         0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 16px rgba(0, 100, 0, 0.45);
+        0 0 18px rgba(79, 70, 229, 0.45);
     }
 
     .project-header-inline {
@@ -302,6 +321,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--crt-green);
+      text-shadow: 0 0 8px var(--crt-green-soft);
     }
 
     .project-tagline {
@@ -353,10 +373,10 @@
       border-radius: 8px;
       background: #000;
       margin-bottom: 8px;
-      border: 2px solid #0c1c0c;
+      border: 2px solid #111827;
       box-shadow:
         inset 0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 14px rgba(0, 255, 0, 0.45);
+        0 0 14px rgba(56, 189, 248, 0.45);
     }
 
     .video-wrapper iframe {
@@ -375,7 +395,7 @@
       color: var(--text-muted);
       display: inline-block;
       margin-top: 2px;
-      background: #050b05;
+      background: #020617;
       font-family: 'Press Start 2P', monospace;
       letter-spacing: 0.1em;
     }
@@ -401,7 +421,7 @@
       padding: 16px 16px 18px;
       box-shadow:
         0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 16px rgba(0, 90, 0, 0.45);
+        0 0 18px rgba(79, 70, 229, 0.45);
     }
 
     .narrative-layout {
@@ -422,10 +442,10 @@
       overflow: hidden;
       background: #000;
       min-height: 160px;
-      border: 2px solid #0c1c0c;
+      border: 2px solid #111827;
       box-shadow:
         inset 0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 14px rgba(0, 255, 0, 0.35);
+        0 0 14px rgba(56, 189, 248, 0.35);
     }
 
     .narrative-image-wrap img {
@@ -442,6 +462,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--crt-green);
+      text-shadow: 0 0 8px var(--crt-green-soft);
     }
 
     .narrative-tagline {
@@ -476,7 +497,7 @@
       margin-top: 8px;
       padding: 7px 13px;
       border-radius: 999px;
-      background: #050b05;
+      background: #020617;
       color: var(--crt-red);
       font-size: 11px;
       font-family: 'Press Start 2P', monospace;
@@ -556,7 +577,6 @@
             <span class="crt-badge">[ CSS ]</span>
             <span class="crt-badge">[ JAVASCRIPT ]</span>
             <span class="crt-badge">[ C# ]</span>
-
           </div>
 
           <!-- TOOLS -->
@@ -570,22 +590,43 @@
 
           <!-- NARRATIVE ABOUT ME TEXT -->
           <p>
-            I was born in a middle-class family in China, where expectations — from parents, teachers, peers, and society — often speak louder than one’s own inner voice. At 18, I left home for Scotland to study finance. When the pandemic hit, I turned to epidemiology and Population Health at UCL, trying to make sense of a world suddenly shaped by uncertainty. After gaining my bachelor and master degrees, I worked for two and a half years as a cancer data scientist in a specialist cancer hospital in London.
+            I was born in a middle-class family in China, where expectations — from parents, teachers, peers, and society —
+            often speak louder than one’s own inner voice. At 18, I left home for Scotland to study finance. When the
+            pandemic hit, I turned to epidemiology and Population Health at UCL, trying to make sense of a world suddenly
+            shaped by uncertainty. After gaining my bachelor and master degrees, I worked for two and a half years as a
+            cancer data scientist in a specialist cancer hospital in London.
           </p>
           <p>
-            Hospitals change people. Watching both young and old lives pass made me understand something quietly but powerfully: I wanted to do work that brings people joy — and I wanted to create. In those long clinical corridors, I began to remember who I actually was.
+            Hospitals change people. Watching both young and old lives pass made me understand something quietly but
+            powerfully: I wanted to do work that brings people joy — and I wanted to create. In those long clinical
+            corridors, I began to remember who I actually was.
           </p>
           <p>
-            I have loved games for as long as I can remember. On my very first day of primary school, my friends and I crowded around the old classroom computer to play games — and it happened to be the era when China’s web games were exploding. In sixth grade, I discovered my first AAA title, <em>Tomb Raider</em>. My mother is a film lover, so I grew up watching movies from every genre and era. In middle school, I wrote my first novella — a tragic reinterpretation of <em>20,000 Leagues Under the Sea</em>. My joy has always been tied to worlds that are invented, imagined, and built.
+            I have loved games for as long as I can remember. On my very first day of primary school, my friends and I
+            crowded around the old classroom computer to play games — and it happened to be the era when China’s web games
+            were exploding. In sixth grade, I discovered my first AAA title, <em>Tomb Raider</em>. My mother is a film
+            lover, so I grew up watching movies from every genre and era. In middle school, I wrote my first novella — a
+            tragic reinterpretation of <em>20,000 Leagues Under the Sea</em>. My joy has always been tied to worlds that are
+            invented, imagined, and built.
           </p>
           <p>
-            So in late September 2025, I left the hospital. I opened VS Code again — not to build dashboards for doctors and nurses, not to model survival rates, and not for promotion or performance — but for myself. I dug out the scripts I wrote years ago and started creating the worlds I had long postponed.
+            So in late September 2025, I left the hospital. I opened VS Code again — not to build dashboards for doctors
+            and nurses, not to model survival rates, and not for promotion or performance — but for myself. I dug out the
+            scripts I wrote years ago and started creating the worlds I had long postponed.
           </p>
           <p>
-            Once I gave myself permission to return to games, my entire life shifted. I began teaching myself C# so I could work in Unity; I started learning sketching fundamentals to improve my ability to visualize characters and spaces; and I read everything I could to build a foundation — <em>Game Design Theory</em>, <em>Designing Virtual Worlds</em>, and <em>Game Design Workshop</em>. For the first time in years, I felt movement, curiosity, and a sense of direction that belonged wholly to me.
+            Once I gave myself permission to return to games, my entire life shifted. I began teaching myself C# so I could
+            work in Unity; I started learning sketching fundamentals to improve my ability to visualize characters and
+            spaces; and I read everything I could to build a foundation — <em>Game Design Theory</em>, <em>Designing Virtual
+            Worlds</em>, and <em>Game Design Workshop</em>. For the first time in years, I felt movement, curiosity, and a
+            sense of direction that belonged wholly to me.
           </p>
           <p>
-            I want to study at CGL because of a moment in Cologne. During a business trip, after a conference, I wandered into the hall of Gamescom. Surrounded by creators from around the world, I saw one beautiful world after another unfolding on screens — worlds born from courage, imagination, and the desire to reach strangers’ hearts. For the first time, I felt clearly that I didn’t want to stand outside these worlds as a spectator. I wanted to be one of the people who build them.
+            I want to study at CGL because of a moment in Cologne. During a business trip, after a conference, I wandered
+            into the hall of Gamescom. Surrounded by creators from around the world, I saw one beautiful world after
+            another unfolding on screens — worlds born from courage, imagination, and the desire to reach strangers’ hearts.
+            For the first time, I felt clearly that I didn’t want to stand outside these worlds as a spectator. I wanted to
+            be one of the people who build them.
           </p>
           <p>
             <strong>I think there are real answers about what games are and how they work, waiting to be discovered, and I just need a chance to try.</strong>
@@ -864,6 +905,7 @@
 </div>
 </body>
 </html>
+
 
 
 
