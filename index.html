@@ -34,21 +34,11 @@
       scroll-behavior: smooth;
     }
 
-    /* ========= 背景：黑→深蓝→紫蓝 + 星光粒子 ========= */
+    /* ========= BACKGROUND ========= */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-
-      /* 主渐变背景 */
-      background:
-        linear-gradient(
-          to bottom,
-          #020014 0%,
-          #071033 35%,
-          #1c2a7a 60%,
-          #5b55d8 100%
-        );
-
+      background: linear-gradient(to bottom, #020014 0%, #071033 35%, #1c2a7a 60%, #5b55d8 100%);
       color: var(--text-main);
       text-shadow: 0 0 4px rgba(0, 0, 0, 0.85);
       position: relative;
@@ -56,64 +46,44 @@
       overflow-x: hidden;
     }
 
-    /* 静态星粒子层（很淡） */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
-
       background-image:
         radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.15), transparent 60%),
         radial-gradient(1.5px 1.5px at 70% 20%, rgba(196,181,253,0.18), transparent 60%),
         radial-gradient(1.8px 1.8px at 40% 80%, rgba(147,197,253,0.22), transparent 60%),
         radial-gradient(1.2px 1.2px at 10% 75%, rgba(248,250,252,0.15), transparent 60%),
         radial-gradient(1.2px 1.2px at 85% 60%, rgba(209,213,219,0.18), transparent 60%);
-
       opacity: 0.45;
     }
 
-    /* 闪烁星粒子层（更淡，有轻微位移） */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
-
       background-image:
         radial-gradient(1.8px 1.8px at 40% 20%, rgba(255,255,255,0.25), transparent 60%),
         radial-gradient(2px 2px at 70% 60%, rgba(196,181,253,0.28), transparent 60%),
         radial-gradient(1.5px 1.5px at 20% 85%, rgba(147,197,253,0.22), transparent 60%);
-
       animation: starTwinkle 10s linear infinite alternate;
       mix-blend-mode: screen;
       opacity: 0.5;
     }
 
     @keyframes starTwinkle {
-      0% {
-        opacity: 0.3;
-        transform: translate3d(0, 0, 0);
-      }
-      50% {
-        opacity: 0.55;
-      }
-      100% {
-        opacity: 0.35;
-        transform: translate3d(-25px, 15px, 0);
-      }
+      0% { opacity: 0.3; transform: translate3d(0, 0, 0); }
+      50% { opacity: 0.55; }
+      100% { opacity: 0.35; transform: translate3d(-25px, 15px, 0); }
     }
-    /* ========= 背景结束 ========= */
 
-    a {
-      color: var(--crt-yellow);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--crt-yellow); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .page {
       max-width: 1150px;
@@ -121,30 +91,11 @@
       padding: 24px 16px 64px;
       border-left: 1px solid rgba(148, 163, 184, 0.6);
       border-right: 1px solid rgba(148, 163, 184, 0.6);
-      box-shadow:
-        0 0 30px rgba(15, 23, 42, 0.95),
-        0 0 80px rgba(59, 130, 246, 0.45);
+      box-shadow: 0 0 30px rgba(15, 23, 42, 0.95), 0 0 80px rgba(59, 130, 246, 0.45);
       background: radial-gradient(circle at top, rgba(7, 10, 35, 0.98) 0, rgba(3, 6, 24, 0.98) 55%);
       position: relative;
       z-index: 1;
       backdrop-filter: blur(4px);
-    }
-
-    .page::before {
-      /* subtle screen texture */
-      content: "";
-      pointer-events: none;
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0.02),
-          rgba(255, 255, 255, 0.02) 1px,
-          transparent 3px
-        );
-      mix-blend-mode: soft-light;
-      opacity: 0.35;
     }
 
     header {
@@ -156,7 +107,6 @@
       position: relative;
       z-index: 1;
       border-bottom: 2px solid var(--crt-border);
-      box-shadow: 0 2px 0 rgba(15, 23, 42, 0.95);
     }
 
     .logo-text {
@@ -173,22 +123,12 @@
       font-family: 'Press Start 2P', monospace;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
       padding-bottom: 2px;
       border-bottom: 2px solid transparent;
     }
-    nav a:hover {
-      color: var(--crt-yellow);
-      border-bottom-color: var(--crt-yellow);
-      text-shadow: 0 0 6px var(--crt-yellow-soft);
-      text-decoration: none;
-    }
+    nav a:hover { color: var(--crt-yellow); border-bottom-color: var(--crt-yellow); text-shadow: 0 0 6px var(--crt-yellow-soft); text-decoration: none; }
 
-    section {
-      margin-top: 32px;
-      position: relative;
-      z-index: 1;
-    }
+    section { margin-top: 32px; position: relative; z-index: 1; }
 
     h2.section-title {
       font-family: 'Press Start 2P', monospace;
@@ -202,129 +142,35 @@
       padding-left: 18px;
     }
 
-    h2.section-title::before {
-      content: "✶";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 12px;
-      color: var(--crt-yellow);
-      text-shadow: 0 0 8px var(--crt-yellow-soft);
-    }
-
-    h2.section-title::after {
-      content: "";
-      position: absolute;
-      left: 18px;
-      bottom: -6px;
-      width: 160px;
-      height: 2px;
-      background: linear-gradient(to right, var(--crt-yellow), var(--crt-red), transparent);
-      box-shadow: 0 0 10px var(--crt-yellow-soft);
-    }
-
-    .section-intro {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      max-width: 720px;
-    }
-
-    /* ABOUT */
+    h2.section-title::before { content: "✶"; position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--crt-yellow); }
 
     .about-card {
       background: var(--bg-card);
       border-radius: 10px;
       border: 2px solid var(--crt-border);
       padding: 18px;
-      box-shadow:
-        0 0 12px rgba(0, 0, 0, 0.9),
-        0 0 24px rgba(59, 130, 246, 0.45);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.9), 0 0 24px rgba(59, 130, 246, 0.45);
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.1fr);
-      gap: 20px;
-      align-items: center;
-    }
+    .about-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.1fr); gap: 20px; align-items: flex-start; }
 
-    @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .about-photo-wrap {
-      display: flex;
-      justify-content: center;
-    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
 
     .about-photo {
-      width: 320px;
-      height: auto;
+      width: 100%;
       border-radius: 8px;
       overflow: hidden;
       border: 2px solid var(--crt-border);
-      box-shadow:
-        0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 24px rgba(79, 70, 229, 0.6);
-      background: #020314;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      box-shadow: 0 0 24px rgba(79, 70, 229, 0.6);
     }
 
-    .about-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.16),
-        transparent 40%
-      );
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-    }
+    .about-photo img { width: 100%; display: block; }
 
-    .about-photo img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+    .about-text p { font-size: 13px; line-height: 1.8; color: var(--text-main); margin: 0 0 16px; }
 
-    .about-text p {
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--text-main);
-      margin: 0 0 8px;
-    }
+    .skills-block-title { font-size: 10px; font-family: 'Press Start 2P', monospace; color: var(--crt-yellow); margin-bottom: 8px; text-transform: uppercase; }
 
-    .about-text em {
-      font-style: italic;
-      color: var(--crt-yellow);
-    }
-
-    /* SKILLS */
-
-    .skills-block-title {
-      font-size: 10px;
-      font-family: 'Press Start 2P', monospace;
-      color: var(--crt-yellow);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    .skills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
+    .skills-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
 
     .crt-badge {
       font-family: 'Press Start 2P', monospace;
@@ -333,262 +179,29 @@
       color: var(--crt-yellow);
       background: #020617;
       border: 2px solid var(--crt-border);
-      text-shadow:
-        0 0 5px var(--crt-yellow-soft),
-        0 0 9px rgba(0,0,0,0.8);
-      box-shadow:
-        inset 0 0 4px rgba(0, 0, 0, 0.6),
-        0 0 8px rgba(165, 180, 252, 0.6);
-      letter-spacing: 0.16em;
       border-radius: 3px;
-      white-space: nowrap;
     }
 
-    /* PROJECTS */
+    /* PROJECTS & NARRATIVE STYLES SIMILAR TO BEFORE... */
+    .projects-grid { display: flex; flex-direction: column; gap: 22px; }
+    .project-card { background: var(--bg-card); border-radius: 10px; border: 2px solid var(--crt-border); padding: 18px; box-shadow: 0 0 18px rgba(79, 70, 229, 0.45); }
+    .project-header-inline { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .project-title { font-size: 14px; font-family: 'Press Start 2P', monospace; color: var(--crt-green); text-shadow: 0 0 8px var(--crt-green-soft); }
+    .project-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.5fr); gap: 16px; }
+    @media (max-width: 900px) { .project-layout { grid-template-columns: 1fr; } }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 2px solid #111827; }
+    .video-wrapper iframe { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+    .pill-link, .btn-pdf { font-family: 'Press Start 2P', monospace; font-size: 9px; padding: 6px 12px; background: #020617; border: 2px solid var(--crt-border); border-radius: 999px; color: var(--text-muted); display: inline-block; margin-top: 10px; }
+    .btn-pdf { color: var(--crt-red); box-shadow: 0 0 8px var(--crt-red-soft); }
 
-    .projects-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border-radius: 10px;
-      border: 2px solid var(--crt-border);
-      padding: 16px 16px 18px;
-      box-shadow:
-        0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 18px rgba(79, 70, 229, 0.45);
-    }
-
-    .project-header-inline {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-      gap: 10px;
-    }
-
-    .project-title {
-      font-size: 14px;
-      font-family: 'Press Start 2P', monospace;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--crt-green);
-      text-shadow: 0 0 8px var(--crt-green-soft);
-    }
-
-    .project-tagline {
-      font-size: 11px;
-      color: var(--crt-yellow);
-      margin-top: 4px;
-    }
-
-    .project-role {
-      font-size: 9px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-family: 'Press Start 2P', monospace;
-    }
-
-    .project-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.5fr);
-      gap: 16px;
-      margin-top: 6px;
-    }
-
-    @media (max-width: 900px) {
-      .project-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .project-text p {
-      font-size: 12px;
-      line-height: 1.7;
-      color: var(--text-main);
-      margin: 0 0 8px;
-    }
-
-    .project-text ul {
-      padding-left: 16px;
-      margin: 4px 0 0;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #000;
-      margin-bottom: 8px;
-      border: 2px solid #111827;
-      box-shadow:
-        inset 0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 14px rgba(56, 189, 248, 0.45);
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-    }
-
-    .pill-link {
-      padding: 5px 9px;
-      border-radius: 999px;
-      border: 2px solid var(--crt-border);
-      font-size: 11px;
-      color: var(--text-muted);
-      display: inline-block;
-      margin-top: 2px;
-      background: #020617;
-      font-family: 'Press Start 2P', monospace;
-      letter-spacing: 0.1em;
-    }
-    .pill-link:hover {
-      border-color: var(--crt-red);
-      color: var(--crt-red);
-      text-decoration: none;
-      box-shadow: 0 0 8px var(--crt-red-soft);
-    }
-
-    /* NARRATIVE */
-
-    .narrative-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .narrative-card {
-      background: var(--bg-card);
-      border-radius: 10px;
-      border: 2px solid var(--crt-border);
-      padding: 16px 16px 18px;
-      box-shadow:
-        0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 18px rgba(79, 70, 229, 0.45);
-    }
-
-    .narrative-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    @media (max-width: 900px) {
-      .narrative-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .narrative-image-wrap {
-      border-radius: 8px;
-      overflow: hidden;
-      background: #000;
-      min-height: 160px;
-      border: 2px solid #111827;
-      box-shadow:
-        inset 0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 14px rgba(56, 189, 248, 0.35);
-    }
-
-    .narrative-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .narrative-text h3 {
-      margin: 0 0 4px;
-      font-size: 14px;
-      font-family: 'Press Start 2P', monospace;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--crt-green);
-      text-shadow: 0 0 8px var(--crt-green-soft);
-    }
-
-    .narrative-tagline {
-      font-size: 11px;
-      color: var(--crt-yellow);
-      margin-bottom: 8px;
-    }
-
-    .narrative-text p {
-      font-size: 12px;
-      line-height: 1.7;
-      color: var(--text-main);
-      margin: 0 0 7px;
-    }
-
-    .narrative-list-title {
-      margin-top: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--crt-green);
-    }
-
-    .narrative-text ul {
-      padding-left: 16px;
-      margin: 4px 0 0;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .btn-pdf {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 7px 13px;
-      border-radius: 999px;
-      background: #020617;
-      color: var(--crt-red);
-      font-size: 11px;
-      font-family: 'Press Start 2P', monospace;
-      letter-spacing: 0.1em;
-      border: 2px solid var(--crt-border);
-      cursor: pointer;
-      box-shadow:
-        0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 12px var(--crt-red-soft);
-      text-transform: uppercase;
-    }
-    .btn-pdf:hover {
-      text-decoration: none;
-      border-color: var(--crt-red);
-      box-shadow: 0 0 14px var(--crt-red-soft);
-    }
-
-    /* CONTACT */
-
-    #contact p {
-      font-size: 12px;
-    }
-
-    footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 2px solid var(--crt-border);
-      font-size: 10px;
-      color: var(--text-muted);
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      font-family: 'Press Start 2P', monospace;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
+    .narrative-card { background: var(--bg-card); border-radius: 10px; border: 2px solid var(--crt-border); padding: 18px; margin-bottom: 20px; }
+    .narrative-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr); gap: 20px; }
+    .narrative-image-wrap { border-radius: 8px; overflow: hidden; border: 2px solid #111827; }
+    .narrative-image-wrap img { width: 100%; object-fit: cover; }
+    .narrative-text h3 { font-family: 'Press Start 2P', monospace; font-size: 13px; color: var(--crt-green); margin-top: 0; }
+    .narrative-list-title { color: var(--crt-green); font-weight: 600; font-size: 12px; margin-top: 10px; display: block; }
+    
+    footer { margin-top: 40px; padding: 20px; border-top: 2px solid var(--crt-border); text-align: center; font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--text-muted); }
   </style>
 </head>
 
@@ -608,470 +221,96 @@
 
   <section id="about">
     <h2 class="section-title">About Me</h2>
-
     <div class="about-card">
       <div class="about-grid">
         <div class="about-photo-wrap">
           <div class="about-photo">
-            <img src="https://drive.google.com/thumbnail?id=1xNMgr2YtN86W-3znA-MSEA7zINVmLmfN&sz=w1200"
-                 alt="Portrait of Taotao Ouyang">
+            <img src="https://drive.google.com/thumbnail?id=1xNMgr2YtN86W-3znA-MSEA7zINVmLmfN&sz=w1200" alt="Taotao Ouyang">
+          </div>
+          <div style="margin-top: 20px;">
+            <p class="skills-block-title">Technical</p>
+            <div class="skills-row">
+              <span class="crt-badge">PYTHON</span><span class="crt-badge">C#</span><span class="crt-badge">SQL</span>
+            </div>
+            <p class="skills-block-title">Tools</p>
+            <div class="skills-row">
+              <span class="crt-badge">UNITY</span><span class="crt-badge">PYGAME</span><span class="crt-badge">GIT</span>
+            </div>
           </div>
         </div>
 
         <div class="about-text">
-
-          <p class="skills-block-title">Technical Skills</p>
-          <div class="skills-row">
-            <span class="crt-badge">[ PYTHON ]</span>
-            <span class="crt-badge">[ SQL ]</span>
-            <span class="crt-badge">[ HTML ]</span>
-            <span class="crt-badge">[ CSS ]</span>
-            <span class="crt-badge">[ JAVASCRIPT ]</span>
-            <span class="crt-badge">[ C# ]</span>
-          </div>
-
-          <p class="skills-block-title">Tools I Use</p>
-          <div class="skills-row">
-            <span class="crt-badge">[ VS&nbsp;CODE ]</span>
-            <span class="crt-badge">[ GIT ]</span>
-            <span class="crt-badge">[ PYGAME ]</span>
-            <span class="crt-badge">[ UNITY ]</span>
-          </div>
-
           <p>
-            I was born in a middle-class family in China, where expectations — from parents, teachers, peers, and society —
-            often speak louder than one’s own inner voice. At 18, I left home for Scotland to study finance. When the
-            pandemic hit, I turned to epidemiology and Population Health at UCL, trying to make sense of a world suddenly
-            shaped by uncertainty. After gaining my bachelor and master degrees, I worked for two and a half years as a
-            cancer data scientist in a specialist cancer hospital in London.
+            I was born in a middle-class family in China, where expectations — from parents, teachers, peers, and society — often speak louder than one’s own inner voice. At 18, I left home for Scotland to study finance. When the pandemic hit, I turned to Epidemiology and Population Health at UCL, trying to make sense of a world suddenly shaped by uncertainty. After gaining my bachelor and master degrees, I worked for two and a half years as a cancer data scientist in a specialist cancer hospital in London.
           </p>
           <p>
-            Hospitals change people. Watching both young and old lives pass made me understand something quietly but
-            powerfully: I wanted to do work that brings people joy — and I wanted to create. In those long clinical
-            corridors, I began to remember who I actually was.
+            Hospitals change people. In those long clinical corridors, with the echoes of the footsteps of the living and the departed, I began to remember who I actually was: my purpose was not to be found in the utility of data, but in the joy discovered through the act of creation.
           </p>
           <p>
-            I have loved games for as long as I can remember. On my very first day of primary school, my friends and I
-            crowded around the old classroom computer to play games — and it happened to be the era when China’s web games
-            were exploding. In sixth grade, I discovered my first AAA title, <em>Tomb Raider</em>. My mother is a film
-            lover, so I grew up watching movies from every genre and era. In middle school, I wrote my first novella — a
-            tragic reinterpretation of <em>20,000 Leagues Under the Sea</em>. My joy has always been tied to worlds that are
-            invented, imagined, and built.
+            My vocation took root on my very first day of primary school, huddled with friends around a classroom computer amidst the explosion of China’s web games. Raised on my mother’s eclectic film collection and the formative impact of <em>Tomb Raider</em>, I soon transitioned from player to author, penning a <strong>tragic reinterpretation</strong> of <em>20,000 Leagues Under the Sea</em>. Whether through code or prose, my joy has always been anchored in worlds <strong>invented, imagined, and built.</strong>
           </p>
           <p>
-            So in late September 2025, I left the hospital. I opened VS Code again — not to build dashboards for doctors
-            and nurses, not to model survival rates, and not for promotion or performance — but for myself. I dug out the
-            scripts I wrote years ago and started creating the worlds I had long postponed.
+            In late September 2025, I left the hospital. I opened VS Code again — no longer to build dashboards for doctors and nurses, or to model survival rates, but for myself. I dug out the scripts I wrote years ago and started creating the worlds I had long postponed.
           </p>
           <p>
-            Once I gave myself permission to return to games, my entire life shifted. I began teaching myself C# so I could
-            work in Unity; I started learning sketching fundamentals to improve my ability to visualize characters and
-            spaces; and I read everything I could to build a foundation — <em>Game Design Theory</em>, <em>Designing Virtual
-            Worlds</em>, and <em>Game Design Workshop</em>. For the first time in years, I felt movement, curiosity, and a
-            sense of direction that belonged wholly to me.
+            I immersed myself in C# and Unity, disciplined my hand with sketching fundamentals to visualise character and space, and established a theoretical bedrock through the study of the game design canon — from Bartle’s virtual worlds to Fullerton’s <em>Game Design Workshop</em>. I had finally found a direction that was, for the first time, wholly my own.
           </p>
           <p>
-            I want to study game because of a moment in Cologne. During a business trip, after a conference, I wandered
-            into the hall of Gamescom. Surrounded by creators from around the world, I saw one beautiful world after
-            another unfolding on screens — worlds born from courage, imagination, and the desire to reach strangers’ hearts.
-            For the first time, I felt clearly that I didn’t want to stand outside these worlds as a spectator. I wanted to
-            be one of the people who build them.
+            I want to study games because of a moment in Cologne. Following a business conference, I wandered into the halls of Gamescom. Surrounded by creators from around the world, I saw one universe after another unfolding on screens — worlds born from courage, imagination, and the desire to reach strangers’ hearts. In that moment, the boundary dissolved: I felt clearly that I didn’t want to stand outside as a spectator, but to be the architect within them.
           </p>
-          <p>
-            <strong>I think there are real answers about what games are and how they work, waiting to be discovered, and I just need a chance to try.</strong>
+          <p style="border-left: 2px solid var(--crt-yellow); padding-left: 15px; font-style: italic;">
+            I think there are real answers about what games are and how they work, waiting to be discovered, and I just need a chance to try.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <h2 class="section-title">Playable Prototypes</h2>
-    <p class="section-intro">
-      Three small pixel-art games built in Python. Each prototype focuses on a specific aspect of moment-to-moment
-      gameplay: patterns and pressure, risk–reward, and 1v1 competitive rhythm against AI.
-    </p>
-
-    <div class="projects-grid">
-
-      <article class="project-card">
-        <div class="project-header-inline">
-          <div>
-            <div class="project-title">Alien Invasion</div>
-            <div class="project-tagline">Top-down pixel shooter with waves and patterns</div>
-          </div>
-          <div class="project-role">Solo Developer</div>
-        </div>
-
-        <div class="project-layout">
-          <div class="project-text">
-            <p><strong>Core idea:</strong> a wave-based top-down shooter focused on movement reading and projectile timing.</p>
-            <p>
-              The player moves horizontally while firing upward. Alien fleets move as a formation, reverse direction
-              when reaching screen edges and drop down a row. Enemies fire projectiles at timed intervals. The player
-              clears waves to increase difficulty in terms of speed, bullet density and fleet spacing, and wins when a
-              score threshold is reached.
-            </p>
-            <p><strong>Programming features:</strong></p>
-            <ul>
-              <li>Fleet movement system with edge-detection and vertical row shifts</li>
-              <li>Bullet pooling and collision handling for player and enemy projectiles</li>
-              <li>Scoring, level progression and difficulty scaling logic</li>
-              <li>Sprite groups, update loops and screen refresh in Pygame</li>
-            </ul>
-          </div>
-          <div>
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/Gqln196GWv0?rel=0"
-                title="Alien Invasion Demo"
-                frameborder="0"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <a class="pill-link" href="https://github.com/Peachgrape2501/alien_invasion" target="_blank">VIEW SOURCE on Github</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-header-inline">
-          <div>
-            <div class="project-title">Fish's Feast</div>
-            <div class="project-tagline">Size-based growth and avoidance</div>
-          </div>
-          <div class="project-role">Solo Developer</div>
-        </div>
-
-        <div class="project-layout">
-          <div class="project-text">
-            <p><strong>Core idea:</strong> a growth and avoidance game where distance to danger directly affects progression.</p>
-            <p>
-              The player controls a fish that grows by consuming smaller fish while avoiding larger predators that end
-              the run on collision. As the player grows, speed, hitbox size and movement weight change. Fish spawn from
-              screen edges with randomized speed and direction. The game is won once the player reaches the target size.
-            </p>
-            <p><strong>Programming features:</strong></p>
-            <ul>
-              <li>Size-based collision rules using radius and bounding-box comparison</li>
-              <li>Dynamic scaling of movement speed and friction as the player grows</li>
-              <li>Randomized enemy spawning logic and off-screen clean-up</li>
-              <li>Growth curve tuning and hitbox recalculation per frame</li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/7eZma81sWDU?rel=0"
-                title="Fish's Feast Demo"
-                frameborder="0"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <a class="pill-link" href="https://github.com/Peachgrape2501/fishs_feast" target="_blank">VIEW SOURCE on Github</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-header-inline">
-          <div>
-            <div class="project-title">Neon Puck Arena</div>
-            <div class="project-tagline">Air-hockey vs AI in a neon arena</div>
-          </div>
-          <div class="project-role">Solo Developer</div>
-        </div>
-
-        <div class="project-layout">
-          <div class="project-text">
-            <p><strong>Core idea:</strong> a fast-paced air-hockey game where the player controls the bottom paddle and plays against an AI.</p>
-            <p>
-              The bottom paddle follows player input. The AI paddle tracks the puck using prediction with clamp-speed
-              limits. The puck accelerates after each collision and bounces using angle-reflection physics. Scoring
-              occurs when the puck enters a goal zone; the round then resets with updated velocity.
-            </p>
-            <p><strong>Programming features:</strong></p>
-            <ul>
-              <li>AI movement heuristics based on puck direction prediction</li>
-              <li>Elastic collision response for puck, paddles and arena walls</li>
-              <li>Vector-based speed, acceleration and reflection updates</li>
-              <li>Full game loop: input → AI update → physics → scoring → reset</li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/r1_tSPOcbzI?rel=0"
-                title="Neon Puck Arena Demo"
-                frameborder="0"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <a class="pill-link" href="https://github.com/Peachgrape2501/neon_puck_arena" target="_blank">VIEW SOURCE on Github</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
   <section id="narrative">
     <h2 class="section-title">Narrative Worlds</h2>
-    <p class="section-intro">
-      Concept documents for narrative-driven games exploring psychological themes, historical tragedy and systemic mechanics.
-    </p>
-
     <div class="narrative-grid">
-
       <article class="narrative-card">
         <div class="narrative-layout">
-
           <div class="narrative-image-wrap">
-            <img src="https://drive.google.com/thumbnail?id=16CzLSupJC1eFvRmIIBEMJVAmB5ehj4Fi&sz=w1200"
-                 alt="Not a Bug concept illustration">
+            <img src="https://drive.google.com/thumbnail?id=16CzLSupJC1eFvRmIIBEMJVAmB5ehj4Fi&sz=w1200" alt="Not a Bug">
           </div>
-
           <div class="narrative-text">
             <h3>Not a Bug</h3>
-            <div class="narrative-tagline">Narrative Adventure · Psychological Transformation</div>
-
-            <p><em>Hook:</em> When the world stops seeing you as human, how do you keep seeing the human in yourself?</p>
-
-            <p>
-              <strong>Not a Bug</strong> is a narrative adventure set in a hyper-modern, almost cyberpunk version of New York,
-              where the protagonist awakens in the body of a firefly-like creature. Struggling with alienation,
-              disconnection and a profound loss of voice, he travels through alleys, rooftops, tunnels, abandoned offices
-              and the hidden roots beneath parks.
-            </p>
-            <p>
-              Along the way, he meets other “bug-people”—former humans who quietly slipped out of society. Each encounter
-              combines narrative choice with gameplay systems that mirror emotional states: foraging, pattern puzzles,
-              corridor loops, rhythm and light.
-            </p>
-            <p>
-              A dynamic balance between <strong>Humanity</strong> and <strong>Insect Instinct</strong> determines whether he
-              returns to human form or remains a bug.
-            </p>
-
-            <p class="narrative-list-title">Key design aspects:</p>
-            <ul>
-              <li>Movement modes and energy management tied to transformation</li>
-              <li>Chapter-specific mechanics based on each NPC’s psychology</li>
-              <li>Humanity Index influenced by memory, trust and energy</li>
-              <li>UI distortion and environmental storytelling for emotional expression</li>
-            </ul>
-
-            <a class="btn-pdf"
-               href="https://drive.google.com/file/d/1abcqkkAf98RwTMdPMnIOat9xHdyvAMUw/view?usp=drive_link"
-               target="_blank">
-              Read full narrative concept (PDF)
-            </a>
+            <p>A narrative adventure exploring humanity through the lens of psychological transformation.</p>
+            <a class="btn-pdf" href="#" target="_blank">Full Concept (PDF)</a>
           </div>
         </div>
       </article>
-
-      <article class="narrative-card">
-        <div class="narrative-layout">
-
-          <div class="narrative-image-wrap">
-            <img
-              src="https://drive.google.com/thumbnail?id=1C4CKSHMsMumuSWjHuhu_RciGy01FG1Q9&sz=w1200"
-              alt="Codename Jeanne concept illustration">
-
-          </div>
-
-          <div class="narrative-text">
-            <h3>Codename Jeanne</h3>
-            <div class="narrative-tagline">Historical Stealth-Action · Tragedy · Theology of Power</div>
-
-            <p><em>Hook:</em> A hired assassin hunts a peasant girl destined for sainthood—only to confront the machinery of power.</p>
-
-            <p>
-              <strong>Codename Jeanne</strong> is a historical stealth-action narrative set in 15th-century France. The player
-              becomes an English assassin—code name <em>The Crow</em>—charged with eliminating Jeanne d’Arc, whose military
-              success has turned her into both an asset and a threat.
-            </p>
-            <p>
-              Through ruins, battlefields and political courts, the assassin uncovers letters and secret archives showing
-              how Jeanne’s rise—and her death—are shaped by nobles, clerics and generals driven by fear and ambition.
-            </p>
-            <p>
-              The story draws on the tragic logic of martyrdom and existential theology: in a world ruled by violence,
-              even faith becomes an act of defiance.
-            </p>
-
-            <p class="narrative-list-title">Key design aspects:</p>
-            <ul>
-              <li>Stealth–action hybrid system</li>
-              <li>Posture / SP model with vulnerability and execution</li>
-              <li>Weapon upgrade trees</li>
-              <li>Morale and faith influence on battlefield states</li>
-              <li>Evidence-driven narrative progression</li>
-            </ul>
-
-            <a class="btn-pdf"
-               href="https://drive.google.com/file/d/14b8pxdXTzASPYaj2A-9J5n6Ng66wRWPZ/view?usp=drive_link"
-               target="_blank">
-              Read full concept document (PDF)
-            </a>
-          </div>
-        </div>
-      </article>
-
     </div>
   </section>
 
   <section id="credits">
     <h2 class="section-title">Credits &amp; References</h2>
-    <p class="section-intro">
-      Audio assets used in the prototypes are credited below. All pixel-art sprites, UI elements, and illustrations
-      shown on this page are drawn by me unless otherwise noted. I also list a few of the books that shaped my thinking
-      while learning game design.
-    </p>
-
     <div class="projects-grid">
       <article class="project-card">
         <div class="project-header-inline">
-          <div>
-            <div class="project-title">Audio Credits</div>
-            <div class="project-tagline">Music &amp; sound effects used in the prototypes</div>
-          </div>
+          <div class="project-title">AI Disclosure &amp; Process</div>
         </div>
-
-        <div class="project-text">
-          <p class="narrative-list-title">Alien Invasion</p>
-          <ul>
-            <li>
-              Background music by wyver9 –
-              <a href="https://opengameart.org/content/arcade-boss-tracks-8-bitchiptune" target="_blank">
-                Arcade Boss Tracks (8-bit / chiptune)
-              </a>
-              via OpenGameArt.
-            </li>
-            <li>
-              Game sound effects by SubspaceAudio –
-              <a href="https://opengameart.org/content/512-sound-effects-8-bit-style" target="_blank">
-                512 Sound Effects (8-bit style)
-              </a>
-              via OpenGameArt.
-            </li>
-          </ul>
-
-          <p class="narrative-list-title">Fish's Feast</p>
-          <ul>
-            <li>
-              Background music –
-              <a href="https://pixabay.com/music/upbeat-ocean-wave-loops-377890/" target="_blank">
-                Ocean Wave Loops
-              </a>
-              on Pixabay.
-            </li>
-            <li>
-              Game sound effects –
-              <a href="https://pixabay.com/sound-effects/eat-323883/" target="_blank">eat-323883</a>,
-              <a href="https://pixabay.com/sound-effects/game-over-417465/" target="_blank">game-over-417465</a>,
-              <a href="https://pixabay.com/sound-effects/marimba-win-f-2-209688/" target="_blank">marimba-win-f-2-209688</a>
-              on Pixabay.
-            </li>
-          </ul>
-
-          <p class="narrative-list-title">Neon Puck Arena</p>
-          <ul>
-            <li>
-              Background music –
-              <a href="https://pixabay.com/music/synthwave-neon-dreams-90s-synthwave-344049/" target="_blank">
-                Neon Dreams – 90s Synthwave
-              </a>
-              on Pixabay.
-            </li>
-            <li>
-              Game sound effects –
-              <a href="https://pixabay.com/sound-effects/tennis-ball-hit-386155/" target="_blank">tennis-ball-hit-386155</a>,
-              <a href="https://pixabay.com/sound-effects/drop-coin-384921/" target="_blank">drop-coin-384921</a>,
-              <a href="https://pixabay.com/sound-effects/you-win-sequence-1-183948/" target="_blank">you-win-sequence-1-183948</a>,
-              <a href="https://pixabay.com/sound-effects/game-over-arcade-6435/" target="_blank">game-over-arcade-6435</a>
-              on Pixabay.
-            </li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-header-inline">
-          <div>
-            <div class="project-title">Reading &amp; Theory</div>
-            <div class="project-tagline">Key texts that informed my thinking</div>
-          </div>
-        </div>
-
-        <div class="project-text">
-          <p class="narrative-list-title">References</p>
-          <ul>
-            <li>
-              Bartle, R. A. (2003) <em>Designing Virtual Worlds</em>. Indianapolis, IN: New Riders.
-            </li>
-            <li>
-              Burgun, K. (2012) <em>Game Design Theory: A New Philosophy for Understanding Games</em>.
-              1st edn. New York: A&nbsp;K Peters/CRC Press.
-            </li>
-            <li>
-              Fullerton, T. (2024) <em>Game Design Workshop: A Playcentric Approach to Creating Innovative Games</em>.
-              5th edn. Boca Raton, FL: A&nbsp;K Peters/CRC Press.
-            </li>
-          </ul>
-
-          <p style="margin-top: 10px;">
-            I read these alongside making my prototypes and narrative concepts. They helped me move from an intuitive
-            love of games to a more structured way of thinking about systems, player experience, and iteration.
-          </p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-header-inline">
-          <div>
-            <div class="project-title">AI Disclosure &amp; Process</div>
-            <div class="project-tagline">Statement on Generative Tools &amp; Originality</div>
-          </div>
-        </div>
-
         <div class="project-text">
           <p>
-            The conceptual illustrations for <strong>"Not a Bug"</strong> and <strong>"Codename Jeanne"</strong> within the Narrative Worlds section were generated with the assistance of <strong>OpenAI’s DALL-E 3 &amp; DALL-E 4</strong>.
+            The conceptual illustrations for <strong>"Not a Bug"</strong> and <strong>"Codename Jeanne"</strong> were generated with the assistance of <strong>OpenAI’s DALL-E 3 &amp; 4</strong>.
           </p>
-          <p class="narrative-list-title">My Creative Workflow:</p>
+          <p class="narrative-list-title">My Creative Process:</p>
           <ul>
-            <li><strong>Conceptualization:</strong> Defining the specific scene and atmosphere based on my original writing.</li>
-            <li><strong>Drafting:</strong> Creating initial hand-drawn sketches to establish composition and structure.</li>
-            <li><strong>Refinement:</strong> Utilizing precise prompting to generate base images, followed by manual digital painting and touch-ups to fix artifacts or errors.</li>
+            <li>First, I conceptualized the required scenes based on my original narratives.</li>
+            <li>I created hand-drawn drafts to establish the desired composition.</li>
+            <li>Finally, I provided specific prompts to the model and manually performed digital touch-ups to fix any visual artifacts.</li>
           </ul>
-          <p style="margin-top: 10px; border-left: 2px solid var(--crt-red); padding-left: 10px;">
-            <strong>Note on Originality:</strong> All dialogues, world-building, and narrative concepts are <strong>100% original</strong>, as they are entirely derived from my completed, serialized novel.
+          <p style="margin-top: 10px; color: var(--crt-yellow);">
+            Note: All dialogue, world-building, and core concepts are 100% original, derived from my completed serialized novel.
           </p>
         </div>
       </article>
-
     </div>
   </section>
 
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-intro">
-      Thank you for reviewing my portfolio!
-    </p>
-    <p>Email: ttoy001025@gmail.com</p>
-  </section>
-
   <footer>
-    © 2025 Taotao Ouyang
+    © 2025 TAOTAO OUYANG
   </footer>
 
 </div>
