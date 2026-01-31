@@ -696,12 +696,12 @@
               score threshold is reached.
             </p>
             <p><strong>Technical Implementation:</strong></p>
-            <ul style="list-style: none; padding-left: 0;">
-              <li><strong>1. Centralized Settings:</strong> Used a <code>Settings</code> class to manage all game parameters (speed, colors, dimensions) in one place for fast tuning.</li>
-              <li><strong>2. Movement Logic:</strong> Implemented <code>KEYDOWN/KEYUP</code> event handling in the Ship class for responsive, vector-based movement.</li>
-              <li><strong>3. Memory Optimization:</strong> Built a projectile system that explicitly destroys bullet objects once they exit screen boundaries to free up memory.</li>
-              <li><strong>4. Fleet Algorithm:</strong> Wrote a math-based generator to calculate the maximum alien grid size based on screen width and sprite dimensions.</li>
-              <li><strong>5. Collision Handling:</strong> Utilized <code>group collide</code> for mass entity combat for player loss-condition detection.</li>
+            <ul class="tech-list">
+              <li><span class="tech-num">1.</span><div class="tech-content"><strong>Settings:</strong> Centralized parameters in a <code>Settings</code> class for rapid balance tuning.</div></li>
+              <li><span class="tech-num">2.</span><div class="tech-content"><strong>Movement:</strong> Event-driven <code>Ship</code> system for smooth, vector-based input response.</div></li>
+              <li><span class="tech-num">3.</span><div class="tech-content"><strong>Memory:</strong> Auto-destroys off-screen projectiles to optimize resource usage.</div></li>
+              <li><span class="tech-num">4.</span><div class="tech-content"><strong>Fleet:</strong> Math-based algorithm for procedural enemy grid generation.</div></li>
+              <li><span class="tech-num">5.</span><div class="tech-content"><strong>Collisions:</strong> Efficient <code>sprite-group</code> logic for combat and game-over detection.</div></li>
             </ul>
           </div>
           <div>
@@ -738,12 +738,11 @@
               screen edges with randomized speed and direction. The game is won once the player reaches the target size.
             </p>
             <p><strong>Technical Implementation:</strong></p>
-            <ul style="list-style: none; padding-left: 0;">
-              <li><strong>1. Global Constants:</strong> Defined core variables for radius, growth rate, and friction to enable rapid playtesting and balancing.</li>
-              <li><strong>2. Physics Simulation:</strong> Built an acceleration-based movement system with a 0.88 friction coefficient to simulate underwater drag.</li>
-              <li><strong>3. Dynamic Scaling:</strong> Developed a <code>scale_to_radius</code> function to resize sprites in real-time while maintaining pixel-art integrity.</li>
-              <li><strong>4. Procedural Spawner:</strong> Coded an automated system to spawn enemies from all four screen edges with randomized trajectories.</li>
-              <li><strong>5. Relative Scaling Logic:</strong> Programmed enemy sizes to be procedurally generated based on the player's current progression.</li>
+            <ul class="tech-list">
+              <li><span class="tech-num">1.</span><div class="tech-content"><strong>Parameters:</strong> Defined global constants for growth and friction to enable fast playtesting.</div></li>
+              <li><span class="tech-num">2.</span><div class="tech-content"><strong>Physics:</strong> Used friction coefficient to simulate realistic underwater drag.</div></li>
+              <li><span class="tech-num">3.</span><div class="tech-content"><strong>Scaling:</strong> Custom <code>scale_to_radius</code> function for real-time, pixel-perfect sprite resizing.</div></li>
+              <li><span class="tech-num">4.</span><div class="tech-content"><strong>Spawner:</strong> Procedural enemy generation with sizes relative to player progression.</div></li>
             </ul>
           </div>
 
@@ -781,12 +780,11 @@
               occurs when the puck enters a goal zone; the round then resets with updated velocity.
             </p>
             <p><strong>Technical Implementation:</strong></p>
-            <ul style="list-style: none; padding-left: 0;">
-              <li><strong>1. Friction Engine:</strong> Applied friction coefficients to puck velocity to simulate a realistic air-hockey surface.</li>
-              <li><strong>2. Vector Reflection:</strong> Developed a collision system where the puck's return angle is calculated based on its specific impact point on the paddle.</li>
-              <li><strong>3. The Unstuck Logic:</strong> Wrote a boundary-check function to manually reset puck coordinates if they exceed arena bounds to prevent corner clipping.</li>
-              <li><strong>4. AI Prediction:</strong> Implemented a puck-tracking algorithm for the AI paddle with clamped speed limits to ensure balanced difficulty.</li>
-              <li><strong>5. State Management:</strong> Built a fast-reset game loop to re-initialize physics and entity positions immediately after a goal is scored.</li>
+            <ul class="tech-list">
+              <li><span class="tech-num">1.</span><div class="tech-content"><strong>Friction:</strong> Applied physics coefficients to puck velocity for a realistic air-hockey feel.</div></li>
+              <li><span class="tech-num">2.</span><div class="tech-content"><strong>Vectors:</strong> Impact-point-based reflection logic for skilled directional angle-shots.</div></li>
+              <li><span class="tech-num">3.</span><div class="tech-content"><strong>Boundary:</strong> Custom Unstuck logic to prevent corner-clipping and coordinate errors.</div></li>
+              <li><span class="tech-num">4.</span><div class="tech-content"><strong>AI Logic:</strong> Predictive puck-tracking with clamped speed for balanced difficulty.</div></li>
             </ul>
           </div>
 
@@ -1090,4 +1088,5 @@
 </div>
 </body>
 </html>
+
 
