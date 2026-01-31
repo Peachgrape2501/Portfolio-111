@@ -695,12 +695,13 @@
               clears waves to increase difficulty in terms of speed, bullet density and fleet spacing, and wins when a
               score threshold is reached.
             </p>
-            <p><strong>Programming features:</strong></p>
-            <ul>
-              <li>Fleet movement system with edge-detection and vertical row shifts</li>
-              <li>Bullet pooling and collision handling for player and enemy projectiles</li>
-              <li>Scoring, level progression and difficulty scaling logic</li>
-              <li>Sprite groups, update loops and screen refresh in Pygame</li>
+            <p><strong>Technical Implementation:</strong></p>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><strong>1. Centralized Settings:</strong> Used a <code>Settings</code> class to manage all game parameters (speed, colors, dimensions) in one place for fast tuning.</li>
+              <li><strong>2. Movement Logic:</strong> Implemented <code>KEYDOWN/KEYUP</code> event handling in the Ship class for responsive, vector-based movement.</li>
+              <li><strong>3. Memory Optimization:</strong> Built a projectile system that explicitly destroys bullet objects once they exit screen boundaries to free up memory.</li>
+              <li><strong>4. Fleet Algorithm:</strong> Wrote a math-based generator to calculate the maximum alien grid size based on screen width and sprite dimensions.</li>
+              <li><strong>5. Collision Handling:</strong> Utilized <code>group collide</code> for mass entity combat for player loss-condition detection.</li>
             </ul>
           </div>
           <div>
@@ -736,12 +737,13 @@
               the run on collision. As the player grows, speed, hitbox size and movement weight change. Fish spawn from
               screen edges with randomized speed and direction. The game is won once the player reaches the target size.
             </p>
-            <p><strong>Programming features:</strong></p>
-            <ul>
-              <li>Size-based collision rules using radius and bounding-box comparison</li>
-              <li>Dynamic scaling of movement speed and friction as the player grows</li>
-              <li>Randomized enemy spawning logic and off-screen clean-up</li>
-              <li>Growth curve tuning and hitbox recalculation per frame</li>
+            <p><strong>Technical Implementation:</strong></p>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><strong>1. Global Constants:</strong> Defined core variables for radius, growth rate, and friction to enable rapid playtesting and balancing.</li>
+              <li><strong>2. Physics Simulation:</strong> Built an acceleration-based movement system with a 0.88 friction coefficient to simulate underwater drag.</li>
+              <li><strong>3. Dynamic Scaling:</strong> Developed a <code>scale_to_radius</code> function to resize sprites in real-time while maintaining pixel-art integrity.</li>
+              <li><strong>4. Procedural Spawner:</strong> Coded an automated system to spawn enemies from all four screen edges with randomized trajectories.</li>
+              <li><strong>5. Relative Scaling Logic:</strong> Programmed enemy sizes to be procedurally generated based on the player's current progression.</li>
             </ul>
           </div>
 
@@ -778,12 +780,13 @@
               limits. The puck accelerates after each collision and bounces using angle-reflection physics. Scoring
               occurs when the puck enters a goal zone; the round then resets with updated velocity.
             </p>
-            <p><strong>Programming features:</strong></p>
-            <ul>
-              <li>AI movement heuristics based on puck direction prediction</li>
-              <li>Elastic collision response for puck, paddles and arena walls</li>
-              <li>Vector-based speed, acceleration and reflection updates</li>
-              <li>Full game loop: input → AI update → physics → scoring → reset</li>
+            <p><strong>Technical Implementation:</strong></p>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><strong>1. Friction Engine:</strong> Applied friction coefficients to puck velocity to simulate a realistic air-hockey surface.</li>
+              <li><strong>2. Vector Reflection:</strong> Developed a collision system where the puck's return angle is calculated based on its specific impact point on the paddle.</li>
+              <li><strong>3. The Unstuck Logic:</strong> Wrote a boundary-check function to manually reset puck coordinates if they exceed arena bounds to prevent corner clipping.</li>
+              <li><strong>4. AI Prediction:</strong> Implemented a puck-tracking algorithm for the AI paddle with clamped speed limits to ensure balanced difficulty.</li>
+              <li><strong>5. State Management:</strong> Built a fast-reset game loop to re-initialize physics and entity positions immediately after a goal is scored.</li>
             </ul>
           </div>
 
@@ -1087,3 +1090,4 @@
 </div>
 </body>
 </html>
+
