@@ -696,12 +696,11 @@
               score threshold is reached.
             </p>
             <p><strong>Technical Implementation:</strong></p>
-            <ul class="tech-list">
-              <li><strong>Settings:</strong> Centralized parameters in a <code>Settings</code> class for rapid balance tuning.</div></li>
-              <li><strong>Movement:</strong> Event-driven <code>Ship</code> system for smooth, vector-based input response.</div></li>
-              <li><strong>Memory:</strong> Auto-destroys off-screen projectiles to optimize resource usage.</div></li>
-              <li><strong>Fleet:</strong> Math-based algorithm for procedural enemy grid generation.</div></li>
-              <li><strong>Collisions:</strong> Efficient <code>sprite-group</code> logic for combat and game-over detection.</div></li>
+            <ul>
+              <li>Centralized parameters in a <code>Settings</code> class for rapid balance tuning.</li>
+              <li>Event-driven <code>Ship</code> system for smooth, vector-based input response.</li>
+              <li>Math-based algorithm for procedural enemy grid generation.</li>
+              <li>Efficient <code>sprite-group</code> logic for combat and game-over detection.</li>
             </ul>
           </div>
           <div>
@@ -738,11 +737,11 @@
               screen edges with randomized speed and direction. The game is won once the player reaches the target size.
             </p>
             <p><strong>Technical Implementation:</strong></p>
-            <ul class="tech-list">
-              <li><strong>Parameters:</strong> Defined global constants for growth and friction to enable fast playtesting.</div></li>
-              <li><strong>Physics:</strong> Used friction coefficient to simulate realistic underwater drag.</div></li>
-              <li><strong>Scaling:</strong> Custom <code>scale_to_radius</code> function for real-time, pixel-perfect sprite resizing.</div></li>
-              <li><strong>Spawner:</strong> Procedural enemy generation with sizes relative to player progression.</div></li>
+            <ul>
+              <li>Defined core constants (radius, growth, friction) for rapid playtesting.</li>
+              <li>Used friction coefficient to simulate realistic underwater drag.</li>
+              <li>Custom <code>scale_to_radius</code> function for real-time, pixel-perfect sprite resizing.</li>
+              <li>Procedural enemy generation with sizes relative to player progression.</li>
             </ul>
           </div>
 
@@ -780,11 +779,11 @@
               occurs when the puck enters a goal zone; the round then resets with updated velocity.
             </p>
             <p><strong>Technical Implementation:</strong></p>
-            <ul class="tech-list">
-              <li><strong>Friction:</strong> Applied physics coefficients to puck velocity for a realistic air-hockey feel.</div></li>
-              <li><strong>Vectors:</strong> Impact-point-based reflection logic for skilled directional angle-shots.</div></li>
-              <li><strong>Boundary:</strong> Custom Unstuck logic to prevent corner-clipping and coordinate errors.</div></li>
-              <li><strong>AI Logic:</strong> Predictive puck-tracking with clamped speed for balanced difficulty.</div></li>
+            <ul>
+              <li>Applied physics coefficients to puck velocity for a realistic air-hockey feel.</li>
+              <li>Impact-point-based reflection logic for skilled directional angle-shots.</li>
+              <li>Custom "Unstuck" logic to prevent corner-clipping and coordinate errors.</li>
+              <li>Predictive puck-tracking with clamped speed for balanced difficulty.</li>
             </ul>
           </div>
 
@@ -1088,6 +1087,3 @@
 </div>
 </body>
 </html>
-
-
-
